@@ -27,6 +27,39 @@ Just run the `graphql-showcase` program. It currently takes no options
 and expects a GAPIC Showcase server to be running locally on port 7469
 (the default).
 
+## Usage
+
+After you've started the `graphql-showcase` server, visit http://localhost:8080
+to open the GraphiQL browser. Then use standard GraphQL to explore the schema
+and make queries. For example, to create a new user, enter:
+```
+mutation {
+  createUser(display_name:"me", email:"me@example.com") {
+    id
+    display_name
+    email
+  }
+}
+```
+To see a list of users, enter:
+```
+{
+  users {
+    id
+    display_name
+    email
+  }
+}
+```
+To delete a user, enter:
+```
+mutation {
+  deleteUser(id:"users/10") {
+    id
+  }
+}
+```
+
 ## Go Version Supported
 This code was developed with Go 1.12.
 
